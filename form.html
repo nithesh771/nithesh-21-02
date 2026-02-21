@@ -26,15 +26,13 @@
 
     <script>
       const form = document.getElementById("loginForm");
-
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", function(e) {
         e.preventDefault();
 
         const formData = {};
         new FormData(form).forEach((value, key) => {
           formData[key] = value;
         });
-        
         localStorage.setItem("loginData", JSON.stringify(formData));
 
         form.submit();
@@ -43,3 +41,4 @@
   </body>
 
 </html>
+
