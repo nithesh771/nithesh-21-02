@@ -8,11 +8,11 @@
       input {
         display: flex;
         margin: 10px 0;
-        padding: 8px;
-        width: 200px;
+        padding: 18px;
+        width: 100px;
       }
       button {
-        padding: 8px 16px;
+        padding: 8px;
       }
     </style>
   </head>
@@ -30,18 +30,16 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Collect form data
         const formData = {};
         new FormData(form).forEach((value, key) => {
           formData[key] = value;
         });
-
-        // Save to localStorage
+        
         localStorage.setItem("loginData", JSON.stringify(formData));
 
-        // Submit the form normally
         form.submit();
       });
     </script>
   </body>
+
 </html>
