@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Submission Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Form Submission Result</h2>
+    <div id="result"></div>
+
+    <script>
+      const savedData = localStorage.getItem("loginData");
+      const resultDiv = document.getElementById("result");
+
+      if (savedData) {
+        const data = JSON.parse(savedData);
+
+        if (!data.username || !data.password) {
+          resultDiv.textContent =
+            "Validation failed: Missing username or password!";
+        } else if (data.password.length < 4) {
+          resultDiv.textContent = "Validation failed: Password too short!";
+        } else {
+          resultDiv.textContent = `Hello ${data.username}, your password is accepted.`;
+        }
+      } else {
+        resultDiv.textContent = "No form data found.";
+      }
+    </script>
+  </body>
+</html>
