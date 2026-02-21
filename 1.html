@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO</title>
+    <style>
+       body{
+        background: greenyellow;
+       }
+      
+    </style>
+    
+  </head>
+  <body>
+    <input id="txtTask" type="txtTask" type="text" placeholder="Enter a Task">
+    <button onclick="AddTask()">+</button>
+    <ul id="tasklist"></ul>
+    <script>
+        function AddTask(){
+            let txt = document.getElementById("txtTask").value;
+            let ul = document.getElementById('tasklist')
+          
+            let li = document.createElement("li");
+            li.textContent = txt;  
+
+            ul.appendChild (li)
+
+           let btn = document.createElement("button");
+           btn.textContent ="x";
+           btn.style.background="red";
+           btn.style.padding = "5px";
+           btn.style.borderRadius="3px";
+           btn.style.marginleft="15px";
+
+           li.appendChild(btn);
+
+           btn.addEventListener("click",function(){
+            li.remove();
+           });
+
+
+        }
+    </script>
+  </body>
+</html>
+
